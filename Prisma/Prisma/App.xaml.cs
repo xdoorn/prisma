@@ -6,11 +6,13 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using Prism.Ioc;
 
 // Using Prism
+using Prism.Ioc;
 using Prism.Unity;
 
+// Using Prisma
+using Prisma.Views;
 
 namespace Prisma
 {
@@ -30,7 +32,7 @@ namespace Prisma
 
     protected override void RegisterTypes(IContainerRegistry containerRegistry)
     {
-      // Nothing to register at the moment.
+      containerRegistry.Register<Services.ICustomerStore, Services.DbCustomerStore>();
     }
   }
 }

@@ -1,10 +1,4 @@
 ﻿// Using .NET
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 // Using Prism
@@ -13,6 +7,7 @@ using Prism.Unity;
 
 // Using Prisma
 using Prisma.Views;
+
 
 namespace Prisma
 {

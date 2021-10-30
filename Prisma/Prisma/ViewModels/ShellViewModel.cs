@@ -13,13 +13,14 @@ using Prism.Mvvm;
 
 // Using Prisma
 using Prisma.Services;
+using Prisma.Infrastructure.Application.Models;
 
 
 namespace Prisma.ViewModels
 {
-  public class ShellViewModel : BindableBase
+  public class ShellViewModel : ModelBase
   {
-    private Services.ICustomerStore _customerStore = null;
+    private ICustomerStore _customerStore = null;
 
     public ShellViewModel(ICustomerStore customerStore)
     {
@@ -30,18 +31,12 @@ namespace Prisma.ViewModels
     public ObservableCollection<string> Customers { get; private set; } = new ObservableCollection<string>();
 
 
-    private string _selectedCustomer = null;
     public string SelectedCustomer
     {
-      get => _selectedCustomer;
-      set
-      {
-        if (SetProperty<string>(ref _selectedCustomer, value))
-        {
-          Debug.WriteLine(_selectedCustomer ?? "no customer selected");
-        }
-      }
+      get => GetProperty<string>();
+      set => SetProperty(value);
     }
+
 
     private DelegateCommand _commandLoad = null;
     public DelegateCommand CommandLoad => _commandLoad ?? (_commandLoad = new DelegateCommand(CommandLoadExecute));

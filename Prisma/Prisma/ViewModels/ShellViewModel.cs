@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 using Prism.Commands;
 using Prism.Mvvm;
 
+// Using Prisma
+using Prisma.Services;
+
 
 namespace Prisma.ViewModels
 {
@@ -18,7 +21,7 @@ namespace Prisma.ViewModels
   {
     private Services.ICustomerStore _customerStore = null;
 
-    public ShellViewModel(Services.ICustomerStore customerStore)
+    public ShellViewModel(ICustomerStore customerStore)
     {
       _customerStore = customerStore;
     }

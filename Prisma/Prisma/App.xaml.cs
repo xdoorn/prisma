@@ -1,13 +1,14 @@
 ﻿// Using .NET
+using System;
 using System.Windows;
 
 // Using Prism
 using Prism.Ioc;
+using Prism.Modularity;
 using Prism.Unity;
 
 // Using Prisma
 using Prisma.Views;
-
 
 namespace Prisma
 {
@@ -28,6 +29,12 @@ namespace Prisma
     protected override void RegisterTypes(IContainerRegistry containerRegistry)
     {
       containerRegistry.Register<Services.ICustomerStore, Services.DbCustomerStore>();
+    }
+
+
+    protected override IModuleCatalog CreateModuleCatalog()
+    {
+      return new XamlModuleCatalog(new Uri("/Prisma;component/ModuleCatalog.xaml", UriKind.Relative));
     }
   }
 }

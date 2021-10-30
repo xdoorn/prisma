@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Resource Update="ModuleCatalog.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
     <Page Update="Views\Shell.xaml">
       <SubType>Designer</SubType>
     </Page>

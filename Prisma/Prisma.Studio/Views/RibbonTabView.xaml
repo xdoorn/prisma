@@ -4,9 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Prisma.Studio.Views"
+             xmlns:prism="http://prismlibrary.com/"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             Header="Studio">
+             Header="{Binding Title}"
+             IsSelected="{Binding IsSelected}"
+             prism:ViewModelLocator.AutoWireViewModel="True">
   <RibbonGroup Header="Engine">
     <RibbonButton Label="Start" />
     <RibbonButton Label="Stop" />

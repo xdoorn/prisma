@@ -14,6 +14,7 @@ namespace Prisma.Studio
   {
     public void RegisterTypes(IContainerRegistry i_containerRegistry)
     {
+      i_containerRegistry.RegisterForNavigation<MainView>("StudioMainView");
     }
 
 
@@ -21,7 +22,6 @@ namespace Prisma.Studio
     {
       var regionManager = i_containerProvider.Resolve<IRegionManager>();
       regionManager.RegisterViewWithRegion("RibbonTabRegion", () => i_containerProvider.Resolve<RibbonTabView>());
-      regionManager.RegisterViewWithRegion("MainRegion", () => i_containerProvider.Resolve<MainView>());
     }
   }
 }

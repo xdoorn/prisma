@@ -9,27 +9,26 @@
         Title="Prisma application" Height="450" Width="800"
         WindowState="Maximized">
   <DockPanel>
-    <TextBlock 
-      DockPanel.Dock="Top"
-      Text="Welcome to prisma" 
-      VerticalAlignment="Center" 
-      HorizontalAlignment="Center" 
-      FontSize="80" 
-      FontWeight="Bold"
-      Foreground="Coral"/>
-    <Grid>
+    <Ribbon DockPanel.Dock="Top" prism:RegionManager.RegionName="RibbonTabRegion">
+      <Ribbon.ApplicationMenu>
+        <RibbonApplicationMenu>
+        </RibbonApplicationMenu>
+      </Ribbon.ApplicationMenu>
+    </Ribbon>
+    <Grid DockPanel.Dock="Bottom">
       <Grid.RowDefinitions>
         <RowDefinition Height="*" />
         <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
 
+      <!--
       <TabControl prism:RegionManager.RegionName="MainRegion">
         <TabControl.Resources>
           <Style TargetType="TabItem">
             <Setter Property="Header" Value="{Binding DataContext.Title}" />
           </Style>
         </TabControl.Resources>
-      </TabControl>
+      </TabControl>-->
     </Grid>
   </DockPanel>
 </Window>

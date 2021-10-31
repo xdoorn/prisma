@@ -20,6 +20,7 @@ namespace Prisma.Warehouse
     public void OnInitialized(IContainerProvider i_containerProvider)
     {
       var regionManager = i_containerProvider.Resolve<IRegionManager>();
+      regionManager.RegisterViewWithRegion("RibbonTabRegion", () => i_containerProvider.Resolve<RibbonTabView>());
       regionManager.RegisterViewWithRegion("MainRegion", () => i_containerProvider.Resolve<MainView>());
     }
 

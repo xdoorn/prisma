@@ -1,16 +1,16 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
-using Prisma.Warehouse.Views;
+using Prisma.Studio.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prisma.Warehouse
+namespace Prisma.Studio
 {
-  public class WarehouseModule : IModule
+  public class StudioModule : IModule
   {
     public void RegisterTypes(IContainerRegistry i_containerRegistry)
     {
@@ -22,6 +22,5 @@ namespace Prisma.Warehouse
       var regionManager = i_containerProvider.Resolve<IRegionManager>();
       regionManager.RegisterViewWithRegion("MainRegion", () => i_containerProvider.Resolve<MainView>());
     }
-
   }
 }

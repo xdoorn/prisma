@@ -37,9 +37,9 @@ namespace Prisma.Infrastructure.Application.Models
     }
 
 
-    public T GetProperty<T>([CallerMemberName] string i_propertyName = null)
+    public T GetProperty<T>(T i_defaultValue = default(T), [CallerMemberName] string i_propertyName = null)
     {
-      T propertyValue = default(T);
+      T propertyValue = i_defaultValue;
 
       object value = GetProperty(i_propertyName);
       if (value != null)

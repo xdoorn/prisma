@@ -15,21 +15,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Page Remove="ModuleCatalog.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Prism.Unity" Version="8.1.97" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Prisma.Infrastructure\Prisma.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="ModuleCatalog.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Resource>
   </ItemGroup>
 
   <ItemGroup>

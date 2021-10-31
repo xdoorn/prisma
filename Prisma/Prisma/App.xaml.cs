@@ -34,7 +34,7 @@ namespace Prisma
 
     protected override IModuleCatalog CreateModuleCatalog()
     {
-      return new XamlModuleCatalog(new Uri("/Prisma;component/ModuleCatalog.xaml", UriKind.Relative));
+      return new ConfigurationModuleCatalog();
     }
   }
 }

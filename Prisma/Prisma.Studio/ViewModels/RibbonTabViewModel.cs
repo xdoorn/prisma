@@ -1,4 +1,5 @@
-﻿using Prism.Regions;
+﻿using Prism;
+using Prism.Regions;
 using Prisma.Infrastructure.Application.Models;
 using Prisma.Infrastructure.Interfaces;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Prisma.Studio.ViewModels
 {
-  public class RibbonTabViewModel : ModelBase, IMainModule
+  public class RibbonTabViewModel : ModelBase, IMainModule, IActiveAware
   {
     public RibbonTabViewModel(IRegionManager i_regionManager)
     {
@@ -24,7 +25,7 @@ namespace Prisma.Studio.ViewModels
     }
 
 
-    public bool IsSelected
+    public bool IsActive
     {
       get { return GetProperty<bool>(); }
       set
@@ -32,10 +33,13 @@ namespace Prisma.Studio.ViewModels
         if (SetProperty(value))
         {
           m_regionManager.RequestNavigate("WorkspaceRegion", "StudioMainView");
+          IsActiveChanged?.Invoke(this, new EventArgs());
         }
       }
     }
 
+
+    public event EventHandler IsActiveChanged;
 
     private readonly IRegionManager m_regionManager = null;
   }

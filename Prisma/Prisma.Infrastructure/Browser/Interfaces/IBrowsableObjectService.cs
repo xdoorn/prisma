@@ -9,5 +9,6 @@ namespace Prisma.Infrastructure.Browser.Interfaces
   public interface IBrowsableObjectService
   {
     IEnumerable<IBrowsableObject> GetBrowsableObjects();
+    IBrowsableObject AttachBrowsableObject();
   }
 }

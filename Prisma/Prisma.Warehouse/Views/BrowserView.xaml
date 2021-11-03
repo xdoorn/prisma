@@ -8,8 +8,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              prism:ViewModelLocator.AutoWireViewModel="True">
-    <Grid>
-    <ListView ItemsSource="{Binding BrowsableObjects}">
+  <DockPanel>
+    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+      <Button Content="Attach" Command="{Binding AttachCommand}" Margin="5" Width="100" Height="25" />
+      <Button Content="Detach" Command="{Binding DetachCommand}" Margin="5" Width="100" Height="25" />
+    </StackPanel>
+    <ListView DockPanel.Dock="Bottom" ItemsSource="{Binding BrowsableObjects}" SelectedItem="{Binding SelectedBrowsableObject}">
       <ListView.ItemTemplate>
         <DataTemplate>
           <StackPanel ToolTip="{Binding FilePath}">
@@ -30,5 +34,5 @@
         </ItemsPanelTemplate>
       </ListBox.ItemsPanel>
     </ListView>
-  </Grid>
+  </DockPanel>
 </UserControl>

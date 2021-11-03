@@ -17,5 +17,10 @@ namespace Prisma.Infrastructure.Browser.Models
       yield return new BrowsableObject() { DisplayName = "White Reportoire", FilePath = @"C:\User\Documents\Prisma\whitereportoire.pgn" };
       yield return new BrowsableObject() { DisplayName = "Black Reportoire", FilePath = @"C:\User\Documents\Prisma\blackreportoire.pgn" };
     }
+
+    public IBrowsableObject AttachBrowsableObject()
+    {
+      return new BrowsableObject() { DisplayName = "New Pgn", FilePath = @"C:\User\Documents\Prisma\new.pgn" };
+    }
   }
 }

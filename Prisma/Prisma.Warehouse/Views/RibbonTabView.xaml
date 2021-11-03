@@ -10,7 +10,7 @@
              Header="{Binding Title}"
              prism:ViewModelLocator.AutoWireViewModel="True">
   <RibbonGroup Header="Browse">
-    <RibbonButton Label="Attach" />
-    <RibbonButton Label="Unattach" />
+    <RibbonButton Label="Attach" Command="{Binding Commands.AttachCommand}" />
+    <RibbonButton Label="Detach" Command="{Binding Commands.DetachCommand}" />
   </RibbonGroup>
 </RibbonTab>

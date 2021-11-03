@@ -2,6 +2,7 @@
 using Prism.Regions;
 using Prisma.Infrastructure.Application.Models;
 using Prisma.Infrastructure.Interfaces;
+using Prisma.Warehouse.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,10 @@ namespace Prisma.Warehouse.ViewModels
 {
   public class RibbonTabViewModel : ModelBase, IMainModule, IActiveAware
   {
-    public RibbonTabViewModel(IRegionManager i_regionManager)
+    public RibbonTabViewModel(IRegionManager i_regionManager, WarehouseCommands i_warehouseCommands)
     {
       m_regionManager = i_regionManager;
+      Commands = i_warehouseCommands;
     }
 
 
@@ -23,6 +25,9 @@ namespace Prisma.Warehouse.ViewModels
       get { return GetProperty<string>("Warehouse"); }
       set { SetProperty(value); }
     }
+
+
+    public WarehouseCommands Commands { get; }
 
 
     public bool IsActive

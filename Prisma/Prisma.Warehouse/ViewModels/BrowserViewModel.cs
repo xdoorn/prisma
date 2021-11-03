@@ -1,6 +1,7 @@
 ﻿using Prism.Commands;
 using Prisma.Infrastructure.Application.Models;
 using Prisma.Infrastructure.Browser.Interfaces;
+using Prisma.Warehouse.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,13 +14,15 @@ namespace Prisma.Warehouse.ViewModels
 {
   public class BrowserViewModel : ModelBase
   {
-    public BrowserViewModel(IBrowsableObjectService i_browserObjectService)
+    public BrowserViewModel(WarehouseCommands i_warehouseCommands, IBrowsableObjectService i_browserObjectService)
     {
-      m_browsableObjectService = i_browserObjectService;
-      BrowsableObjects.AddRange(i_browserObjectService.GetBrowsableObjects());
-
       AttachCommand = new DelegateCommand(OnAttach);
       DetachCommand = new DelegateCommand(OnDetach, CanDetach).ObservesProperty(() => SelectedBrowsableObject);
+      i_warehouseCommands.AttachCommand.RegisterCommand(AttachCommand);
+      i_warehouseCommands.DetachCommand.RegisterCommand(DetachCommand);
+
+      m_browsableObjectService = i_browserObjectService;
+      BrowsableObjects.AddRange(i_browserObjectService.GetBrowsableObjects());
     }
     
 

@@ -1,6 +1,7 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
+using Prisma.Warehouse.Models;
 using Prisma.Warehouse.Views;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Prisma.Warehouse
     public void RegisterTypes(IContainerRegistry i_containerRegistry)
     {
       i_containerRegistry.RegisterForNavigation<MainView>("WarehouseMainView");
+      i_containerRegistry.RegisterSingleton<WarehouseCommands>();
     }
 
 

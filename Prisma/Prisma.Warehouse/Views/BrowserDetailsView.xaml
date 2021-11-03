@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Prisma.Warehouse.Views.MainView"
+﻿<UserControl x:Class="Prisma.Warehouse.Views.BrowserDetailsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,10 +8,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              prism:ViewModelLocator.AutoWireViewModel="True">
-  <DockPanel>
-    <TextBlock Text="Warehouse" HorizontalAlignment="Center" VerticalAlignment="Center"
-                 Foreground="Purple" FontSize="48" FontStyle="Italic" DockPanel.Dock="Top"/>
-    <ContentControl prism:RegionManager.RegionName="BrowserRegion" DockPanel.Dock="Top" Margin="10" />
-    <ContentControl prism:RegionManager.RegionName="BrowserDetailsRegion" Margin="10"/>
-  </DockPanel>
+  <Grid>
+    <StackPanel DataContext="{Binding BrowsableObject}">
+      <TextBlock Text="{Binding DisplayName}" Margin="5" />
+      <TextBlock Text="{Binding FilePath}" Margin="5" />
+    </StackPanel>
+  </Grid>
 </UserControl>

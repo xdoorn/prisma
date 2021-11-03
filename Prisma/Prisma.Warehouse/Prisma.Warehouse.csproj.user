@@ -5,9 +5,15 @@
     <Compile Update="Views\BrowserView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\BrowserDetailsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\BrowserView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\BrowserDetailsView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

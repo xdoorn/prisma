@@ -1,5 +1,7 @@
 ﻿using Prism.Commands;
+using Prism.Events;
 using Prisma.Infrastructure.Application.Models;
+using Prisma.Infrastructure.Browser.Events;
 using Prisma.Infrastructure.Browser.Interfaces;
 using Prisma.Warehouse.Models;
 using System;
@@ -14,8 +16,13 @@ namespace Prisma.Warehouse.ViewModels
 {
   public class BrowserViewModel : ModelBase
   {
-    public BrowserViewModel(WarehouseCommands i_warehouseCommands, IBrowsableObjectService i_browserObjectService)
+    public BrowserViewModel(
+      IEventAggregator i_eventAggregator,
+      WarehouseCommands i_warehouseCommands, 
+      IBrowsableObjectService i_browserObjectService)
     {
+      m_eventAggregator = i_eventAggregator;
+
       AttachCommand = new DelegateCommand(OnAttach);
       DetachCommand = new DelegateCommand(OnDetach, CanDetach).ObservesProperty(() => SelectedBrowsableObject);
       i_warehouseCommands.AttachCommand.RegisterCommand(AttachCommand);
@@ -30,7 +37,19 @@ namespace Prisma.Warehouse.ViewModels
     public ICommand DetachCommand { get => GetProperty<ICommand>(); set => SetProperty(value); }
 
 
-    public IBrowsableObject SelectedBrowsableObject { get => GetProperty<IBrowsableObject>(); set => SetProperty(value); }
+    public IBrowsableObject SelectedBrowsableObject 
+    { 
+      get => GetProperty<IBrowsableObject>();
+      set
+      {
+        if (SetProperty(value))
+        {
+          m_eventAggregator.GetEvent<BrowsableObjectSelectedEvent>().Publish(value);
+        }
+      }
+    }
+
+
     public ObservableCollection<IBrowsableObject> BrowsableObjects { get; } = new ObservableCollection<IBrowsableObject>();
 
 
@@ -52,6 +71,7 @@ namespace Prisma.Warehouse.ViewModels
     }
 
 
+    private readonly IEventAggregator m_eventAggregator;
     private readonly IBrowsableObjectService m_browsableObjectService;
   }
 }

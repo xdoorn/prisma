@@ -21,4 +21,8 @@
     <ProjectReference Include="..\Prisma.Infrastructure\Prisma.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>

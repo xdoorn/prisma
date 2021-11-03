@@ -22,7 +22,7 @@ namespace Prisma.Warehouse
     {
       var regionManager = i_containerProvider.Resolve<IRegionManager>();
       regionManager.RegisterViewWithRegion("RibbonTabRegion", () => i_containerProvider.Resolve<RibbonTabView>());
-      //regionManager.RequestNavigate("WorkspaceRegion", "WarehouseMainView");
+      regionManager.RegisterViewWithRegion("BrowserRegion", () => i_containerProvider.Resolve<BrowserView>());
     }
   }
 }

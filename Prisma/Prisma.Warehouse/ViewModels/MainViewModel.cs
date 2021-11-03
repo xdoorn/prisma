@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +10,9 @@ using Prisma.Infrastructure.Interfaces;
 
 namespace Prisma.Warehouse.ViewModels
 {
-  public class MainViewModel : ModelBase, IMainModule, INavigationAware
+  public class MainViewModel : ModelBase, IMainModule
   {
-    public MainViewModel(IRegionManager i_regionManager)
+    public MainViewModel()
     {
     }
 
@@ -20,22 +21,6 @@ namespace Prisma.Warehouse.ViewModels
     {
       get { return GetProperty<string>("Warehouse"); }
       set { SetProperty(value); }
-    }
-
-
-    public bool IsNavigationTarget(NavigationContext navigationContext)
-    {
-      return true;
-    }
-
-
-    public void OnNavigatedFrom(NavigationContext navigationContext)
-    {
-    }
-
-
-    public void OnNavigatedTo(NavigationContext navigationContext)
-    {
     }
   }
 }

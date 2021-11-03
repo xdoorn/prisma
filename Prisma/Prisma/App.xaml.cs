@@ -6,6 +6,8 @@ using System.Windows;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Unity;
+using Prisma.Infrastructure.Browser.Interfaces;
+using Prisma.Infrastructure.Browser.Models;
 
 // Using Prisma
 using Prisma.Views;
@@ -28,7 +30,7 @@ namespace Prisma
 
     protected override void RegisterTypes(IContainerRegistry containerRegistry)
     {
-      containerRegistry.Register<Services.ICustomerStore, Services.DbCustomerStore>();
+      containerRegistry.RegisterSingleton<IBrowsableObjectService, BrowsableObjectService>();
     }
 
 

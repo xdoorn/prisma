@@ -8,9 +8,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              prism:ViewModelLocator.AutoWireViewModel="True">
-    <Grid>
+  <DockPanel>
     <TextBlock Text="Warehouse" HorizontalAlignment="Center" VerticalAlignment="Center"
-                 Foreground="Purple" FontSize="48" FontStyle="Italic"/>
-
-  </Grid>
+                 Foreground="Purple" FontSize="48" FontStyle="Italic" DockPanel.Dock="Top"/>
+    <ContentControl prism:RegionManager.RegionName="BrowserRegion" />
+  </DockPanel>
 </UserControl>
